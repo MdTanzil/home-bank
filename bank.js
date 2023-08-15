@@ -28,6 +28,13 @@ document.getElementById("withdraw-btn").addEventListener("click", () => {
   let balanceDisplay = parseFloat(
     document.getElementById("Balance-display").innerText
   ); 
+  if (withdraw> balanceDisplay) {
+    alert('Not have enough balance')
+  document.getElementById("withdraw-ammount").value = "";
+
+
+    return
+  }
   document.getElementById("withdrow-display").innerText = withdrawDisplay + withdraw
   document.getElementById("Balance-display").innerText =
     balanceDisplay - withdraw;
