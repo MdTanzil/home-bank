@@ -1,6 +1,6 @@
 document.getElementById("deposit-btn").addEventListener("click", () => {
   let deposit = document.getElementById("deposit-ammount").value
-  if(isNaN(deposit)){
+  if(isNaN(deposit) || deposit < 0){
     alert('enter valid input ')
     return
   }
@@ -14,4 +14,23 @@ document.getElementById("deposit-btn").addEventListener("click", () => {
   ); 
   document.getElementById("Balance-display").innerText = balanceDisplay + deposit
   document.getElementById("deposit-ammount").value=''
+});
+document.getElementById("withdraw-btn").addEventListener("click", () => {
+  let withdraw = document.getElementById("withdraw-ammount").value;
+  if (isNaN(withdraw) || withdraw < 0) {
+    alert("enter valid input ");
+    return;
+  }
+  withdraw = parseFloat(withdraw)
+  let withdrawDisplay = parseFloat(
+    document.getElementById("withdrow-display").innerHTML
+  );
+  let balanceDisplay = parseFloat(
+    document.getElementById("Balance-display").innerText
+  ); 
+  document.getElementById("withdrow-display").innerText = withdrawDisplay + withdraw
+  document.getElementById("Balance-display").innerText =
+    balanceDisplay - withdraw;
+    
+  document.getElementById("withdraw-ammount").value = "";
 });
